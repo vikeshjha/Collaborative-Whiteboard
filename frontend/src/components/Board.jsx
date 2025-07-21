@@ -10,13 +10,13 @@ const Board = ({ user, roomCode, roomName, onLeaveRoom }) => {
   const [brushColor, setBrushColor] = useState('#000000');
 
   useEffect(() => {
-    // Initialize socket connection
+  
     socketRef.current = io('http://localhost:3000');
     
-    // Join the room
+  
     socketRef.current.emit('join-room', roomCode);
     
-    // Listen for canvas data from other users
+
     socketRef.current.on('canvas-data', ({ imageData }) => {
       const canvas = canvasRef.current;
       if (!canvas) return;
@@ -30,7 +30,7 @@ const Board = ({ user, roomCode, roomName, onLeaveRoom }) => {
       img.src = imageData;
     });
 
-    // Listen for clear canvas
+ 
     socketRef.current.on('clear-canvas', () => {
       const canvas = canvasRef.current;
       if (!canvas) return;
@@ -50,22 +50,22 @@ const Board = ({ user, roomCode, roomName, onLeaveRoom }) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    // CRITICAL FIX: Set canvas size properly
+ 
     const setCanvasSize = () => {
       const container = canvas.parentElement;
       const containerRect = container.getBoundingClientRect();
       
-      // Set a fixed size that works well
+  
       const targetWidth = Math.min(containerRect.width - 40, 1000);
       const targetHeight = Math.min(containerRect.height - 40, 600);
       
-      // Set both canvas properties AND CSS size
+ 
       canvas.width = targetWidth;
       canvas.height = targetHeight;
       canvas.style.width = targetWidth + 'px';
       canvas.style.height = targetHeight + 'px';
       
-      // Configure context after resizing
+     
       const ctx = canvas.getContext('2d');
       ctx.lineCap = 'round';
       ctx.lineJoin = 'round';
@@ -79,12 +79,11 @@ const Board = ({ user, roomCode, roomName, onLeaveRoom }) => {
     return () => window.removeEventListener('resize', setCanvasSize);
   }, []);
 
-  // CRITICAL FIX: Proper coordinate calculation
   const getMousePos = (e) => {
     const canvas = canvasRef.current;
     const rect = canvas.getBoundingClientRect();
     
-    // Get the scale factors
+    
     const scaleX = canvas.width / rect.width;
     const scaleY = canvas.height / rect.height;
     
@@ -101,13 +100,13 @@ const Board = ({ user, roomCode, roomName, onLeaveRoom }) => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
     
-    // Set drawing properties
+ 
     ctx.strokeStyle = tool === 'eraser' ? '#FFFFFF' : brushColor;
     ctx.lineWidth = brushSize;
     ctx.lineCap = 'round';
     ctx.lineJoin = 'round';
     
-    // Start new path
+
     ctx.beginPath();
     ctx.moveTo(pos.x, pos.y);
   };
@@ -127,7 +126,6 @@ const Board = ({ user, roomCode, roomName, onLeaveRoom }) => {
     if (!isDrawing) return;
     setIsDrawing(false);
     
-    // Send canvas data to other users
     const canvas = canvasRef.current;
     const imageData = canvas.toDataURL();
     socketRef.current?.emit('canvas-data', {
@@ -136,7 +134,7 @@ const Board = ({ user, roomCode, roomName, onLeaveRoom }) => {
     });
   };
 
-  // Touch support for mobile
+  
   const handleTouchStart = (e) => {
     e.preventDefault();
     const touch = e.touches[0];
@@ -170,7 +168,7 @@ const Board = ({ user, roomCode, roomName, onLeaveRoom }) => {
       ctx.fillStyle = 'white';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       
-      // Notify other users
+ 
       socketRef.current?.emit('clear-canvas', roomCode);
     }
   };
@@ -247,7 +245,7 @@ const Board = ({ user, roomCode, roomName, onLeaveRoom }) => {
           onTouchEnd={handleTouchEnd}
           style={{ 
             cursor: tool === 'eraser' ? 'grab' : 'crosshair',
-            touchAction: 'none' // Prevents scrolling on touch
+            touchAction: 'none' 
           }}
         />
       </div>

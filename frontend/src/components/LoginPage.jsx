@@ -13,7 +13,7 @@ const LoginPage = ({ onLogin }) => {
   const handleInputChange = (e) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
-    // Clear error when user starts typing
+    
     if (error) setError('')
   }
 
@@ -22,7 +22,7 @@ const LoginPage = ({ onLogin }) => {
     setLoading(true)
     setError('')
 
-    // Basic validation
+  
     if (!formData.username || !formData.password) {
       setError('Please fill in all fields')
       setLoading(false)
@@ -42,7 +42,7 @@ const LoginPage = ({ onLogin }) => {
       const data = await response.json()
       
       if (response.ok) {
-        // Store JWT token in localStorage
+       
         localStorage.setItem('authToken', data.token)
         localStorage.setItem('user', JSON.stringify(data.user))
         onLogin(data.user)
@@ -61,7 +61,7 @@ const LoginPage = ({ onLogin }) => {
     setLoading(true)
     setError('')
 
-    // Client-side validation
+   
     if (!formData.username || !formData.email || !formData.password) {
       setError('Please fill in all fields')
       setLoading(false)

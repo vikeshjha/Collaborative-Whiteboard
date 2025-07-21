@@ -13,7 +13,7 @@ const RoomManager = ({ user, onJoinRoom }) => {
     setError('');
 
     try {
-      // Get token from localStorage
+    
       const token = localStorage.getItem('authToken');
       
       if (!token) {

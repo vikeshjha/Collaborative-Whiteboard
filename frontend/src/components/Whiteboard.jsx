@@ -10,7 +10,7 @@ const Whiteboard = ({ user, roomCode, roomName, onLeaveRoom }) => {
   const [brushColor, setBrushColor] = useState('#000000')
   const [lastPos, setLastPos] = useState({ x: 0, y: 0 })
 
-  // FIXED: Complete custom cursor with proper SVG
+G
   const createCustomCursor = () => {
     if (tool === 'pen') {
       const size = Math.max(brushSize + 4, 12);
@@ -40,7 +40,7 @@ const Whiteboard = ({ user, roomCode, roomName, onLeaveRoom }) => {
   };
 
   useEffect(() => {
-    // Initialize socket connection
+    
     socketRef.current = io('http://localhost:3000')
     socketRef.current.emit('join-room', roomCode)
     
@@ -76,11 +76,11 @@ const Whiteboard = ({ user, roomCode, roomName, onLeaveRoom }) => {
     const canvas = canvasRef.current
     if (!canvas) return
 
-    // FIXED: Set exact canvas dimensions to match CSS
-    canvas.width = 650  // Fixed width
-    canvas.height = 450 // Fixed height
     
-    // Ensure CSS dimensions match internal canvas dimensions
+    canvas.width = 650 
+    canvas.height = 450 
+    
+
     canvas.style.width = '650px'
     canvas.style.height = '450px'
 
@@ -91,7 +91,7 @@ const Whiteboard = ({ user, roomCode, roomName, onLeaveRoom }) => {
     ctx.fillRect(0, 0, canvas.width, canvas.height)
   }, [])
 
-  // Update cursor when tool or size changes
+
   useEffect(() => {
     const canvas = canvasRef.current
     if (canvas) {
@@ -99,7 +99,6 @@ const Whiteboard = ({ user, roomCode, roomName, onLeaveRoom }) => {
     }
   }, [tool, brushSize, brushColor])
 
-  // FIXED: Proper coordinate calculation
   const getCanvasCoordinates = (e) => {
     const canvas = canvasRef.current
     if (!canvas) return { x: 0, y: 0 }
@@ -160,7 +159,7 @@ const Whiteboard = ({ user, roomCode, roomName, onLeaveRoom }) => {
     })
   }
 
-  // Touch event handlers for mobile
+ 
   const handleTouchStart = (e) => {
     e.preventDefault()
     const touch = e.touches[0]

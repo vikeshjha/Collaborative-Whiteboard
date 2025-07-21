@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-/* Global Reset and Fullscreen Setup */
+
 * {
   margin: 0;
   padding: 0;
@@ -9,7 +9,7 @@
 
 html, body {
   height: 100%;
-  overflow: hidden; /* Prevents page scrolling */
+  overflow: hidden; 
 }
 
 #root {
@@ -35,7 +35,7 @@ html, body {
   position: relative;
 }
 
-/* Animated Background */
+
 @keyframes gradientShift {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -60,7 +60,7 @@ html, body {
   100% { transform: translateY(-100vh) rotate(360deg); }
 }
 
-/* Login Page - Centered with Enhanced Design */
+
 .login-container {
   max-width: 450px;
   width: 90%;
@@ -121,7 +121,7 @@ html, body {
   z-index: 1;
 }
 
-/* Room Manager - Enhanced Design */
+
 .room-manager {
   max-width: 500px;
   width: 90%;
@@ -147,7 +147,7 @@ html, body {
   background-clip: text;
 }
 
-/* Whiteboard App - Fullscreen */
+
 .whiteboard-app {
   height: 100vh;
   width: 100vw;
@@ -163,7 +163,7 @@ html, body {
   to { opacity: 1; }
 }
 
-/* Room Header - Enhanced with Animation and Button Container */
+
 .room-header {
   background: linear-gradient(45deg, #667eea, #764ba2);
   color: white;
@@ -226,14 +226,14 @@ html, body {
   font-weight: 600;
 }
 
-/* Enhanced Header Buttons Container */
+
 .header-buttons {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-/* Enhanced Back Button */
+
 .back-btn {
   background: linear-gradient(135deg, #667eea, #764ba2);
   color: white;
@@ -261,7 +261,7 @@ html, body {
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-/* Enhanced Logout Button */
+
 .logout-btn {
   background: rgba(255, 255, 255, 0.2);
   color: white;
@@ -284,7 +284,7 @@ html, body {
   transform: translateY(0);
 }
 
-/* Tools Section - Enhanced Design */
+
 .tools {
   background: #f8f9fa;
   padding: 15px 30px;
@@ -389,7 +389,7 @@ html, body {
   box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
 }
 
-/* Enhanced Tool Inputs */
+
 .tool-group input[type="color"] {
   width: 45px;
   height: 36px;
@@ -439,7 +439,7 @@ html, body {
   box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
 }
 
-/* Canvas Container - Enhanced */
+
 .canvas-container {
   flex: 1;
   display: flex;
@@ -450,7 +450,7 @@ html, body {
   overflow: hidden;
 }
 
-/* Canvas - FIXED with exact dimensions for proper cursor positioning */
+
 .whiteboard-canvas {
   background: white;
   border: 3px solid #667eea;
@@ -459,11 +459,11 @@ html, body {
   transition: all 0.3s ease;
   animation: canvasEntrance 1s ease-out 0.4s both;
   
-  /* CRITICAL: Fixed dimensions for cursor accuracy */
+ 
   width: 650px !important;
   height: 450px !important;
   
-  /* Prevent any scaling or transforms */
+ 
   transform: none !important;
   image-rendering: pixelated;
   image-rendering: -moz-crisp-edges;
@@ -487,7 +487,7 @@ html, body {
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
 }
 
-/* Enhanced Tab Buttons */
+
 .tab-buttons {
   display: flex;
   margin-bottom: 25px;
@@ -537,7 +537,7 @@ html, body {
   box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
 }
 
-/* Enhanced Forms */
+
 .form {
   display: flex;
   flex-direction: column;
@@ -559,7 +559,7 @@ html, body {
   font-size: 20px;
 }
 
-/* Enhanced Input Fields with Explicit Text Color */
+
 .form input[type="text"],
 .form input[type="password"],
 .form input[type="email"] {
@@ -591,7 +591,7 @@ html, body {
   -webkit-text-fill-color: #2d3748 !important;
 }
 
-/* Enhanced Email Input Styling with Visible Placeholder */
+
 .form input[type="email"]::placeholder {
   color: #9ca3af !important;
   font-style: italic;
@@ -625,7 +625,7 @@ html, body {
   color: #2d3748 !important;
 }
 
-/* Auto-fill styling to prevent invisible text */
+
 .form input:-webkit-autofill,
 .form input:-webkit-autofill:hover,
 .form input:-webkit-autofill:focus,
@@ -635,7 +635,7 @@ html, body {
   color: #2d3748 !important;
 }
 
-/* Email Input Wrapper with Icon */
+
 .email-input-wrapper {
   position: relative;
   display: flex;
@@ -664,7 +664,7 @@ html, body {
   transform: scale(1.1);
 }
 
-/* Enhanced Submit Buttons */
+
 .form button[type="submit"] {
   padding: 16px 24px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -711,7 +711,7 @@ html, body {
   box-shadow: 0 2px 6px rgba(102, 126, 234, 0.1);
 }
 
-/* Enhanced Error Messages */
+
 .error-message {
   background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
   color: white;
@@ -753,7 +753,7 @@ html, body {
   100% { left: 100%; }
 }
 
-/* Success Messages */
+
 .success-message {
   background: linear-gradient(135deg, #51cf66, #69db7c);
   color: white;
@@ -779,7 +779,7 @@ html, body {
   animation: messageShimmer 2s infinite;
 }
 
-/* Enhanced Mobile Responsiveness */
+
 @media (max-width: 768px) {
   .App {
     padding: 10px;
@@ -855,13 +855,13 @@ html, body {
     font-size: 13px;
   }
 
-  /* Ensure text visibility on mobile */
+
   .form input[type="text"],
   .form input[type="password"],
   .form input[type="email"] {
     color: #2d3748 !important;
     -webkit-text-fill-color: #2d3748 !important;
-    font-size: 16px !important; /* Prevents zoom on iOS */
+    font-size: 16px !important; 
   }
 }
 
@@ -912,7 +912,7 @@ html, body {
   }
 }
 
-/* Enhanced Focus Styles for Accessibility */
+
 .tool-btn:focus,
 .logout-btn:focus,
 .back-btn:focus,
@@ -923,7 +923,7 @@ html, body {
   box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
 }
 
-/* Loading States */
+
 .loading {
   background-image: linear-gradient(
     90deg,
@@ -942,7 +942,7 @@ html, body {
   100% { background-position: 200% 0; }
 }
 
-/* Smooth Scrollbar */
+
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -961,7 +961,7 @@ html, body {
   background: linear-gradient(135deg, #5a67d8, #6b46c1);
 }
 
-/* Global Input Text Visibility Fix */
+
 input[type="text"],
 input[type="password"],
 input[type="email"],

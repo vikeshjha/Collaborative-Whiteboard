@@ -9,7 +9,7 @@ const App = () => {
   const [currentRoom, setCurrentRoom] = useState(null)
 
   useEffect(() => {
-    // Check for existing login
+    
     const token = localStorage.getItem('authToken')
     const savedUser = localStorage.getItem('user')
     
@@ -32,7 +32,7 @@ const App = () => {
     setCurrentRoom(roomData)
   }
 
-  // NEW: Handle leaving room - returns to room selection
+  
   const handleLeaveRoom = () => {
     setCurrentRoom(null)
   }
@@ -44,7 +44,7 @@ const App = () => {
     localStorage.removeItem('user')
   }
 
-  // Login screen
+  
   if (!user) {
     return (
       <div className="App">
@@ -53,7 +53,7 @@ const App = () => {
     )
   }
 
-  // Room selection screen
+ 
   if (!currentRoom) {
     return (
       <div className="App">
@@ -62,7 +62,7 @@ const App = () => {
     )
   }
 
-  // Whiteboard screen
+
   return (
     <div className="App">
       <Whiteboard 
